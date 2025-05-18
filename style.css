@@ -32,7 +32,6 @@ body {
   animation: rain 1s linear infinite;
   background: linear-gradient(to bottom, transparent 0%, #00ff00 50%, transparent 100%);
   opacity: 0.1;
-  animation: textColorChange 5s infinite alternate;
 }
 
 @keyframes rain {
