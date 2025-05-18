@@ -27,43 +27,4 @@ canvas {
   50% { color: #ff00ff; }
   75% { color: #ffff00; }
   100% { color: #ff0000; }
-}/* Matrix background */
-body {
-  margin: 0;
-  background: black;
-  overflow: hidden;
-  font-family: monospace;
-}
-
-.matrix {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: black;
-  z-index: -1;
-}
-
-canvas {
-  display: block;
-}
-
-/* Color changing text */
-.content {
-  position: relative;
-  z-index: 1;
-  color: #00ff00;
-  padding: 20px;
-  animation: textColorChange 5s infinite alternate;
-}
-
-.content h1, h2, h3, p, li, strong {
-  animation: textColorChange 5s infinite alternate;
-}
-
-@keyframes textColorChange {
-  0% { color: #00ff00; }
-  25% { color: #00ffff; }
-  50% { color: #ff00ff; }
-  75% { color: #ffff00; }
-  100% { color: #ff0000; }
 }
