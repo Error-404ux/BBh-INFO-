@@ -1,4 +1,33 @@
-/* Matrix background */
+body {
+  margin: 0;
+  overflow: hidden;
+  background: black;
+  font-family: monospace;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  color: #00ff00;
+  text-align: center;
+  margin-top: 100px;
+  animation: textColorChange 5s infinite alternate;
+}
+
+@keyframes textColorChange {
+  0% { color: #00ff00; }
+  25% { color: #00ffff; }
+  50% { color: #ff00ff; }
+  75% { color: #ffff00; }
+  100% { color: #ff0000; }
+}/* Matrix background */
 body {
   margin: 0;
   background: black;
