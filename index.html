@@ -1,115 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="BBH Bah Dark Web, Cybersecurity, TOR, Hacker Info by Arish">
-  <meta name="keywords" content="bbh, bah, dark web, tor, arish, hacker, cyber security, ethical hacking">
-  <meta name="author" content="Arish Ahmed Tushar">
-  <title>Bangladesh Black Hacker - Arish Ahmed Tushar</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I Love You Animation</title>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .info {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: rgba(255, 255, 255, 0); /* Initially hidden */
+      font-size: 48px;
+      font-family: 'cursive', sans-serif;
+      text-align: center;
+      pointer-events: none;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.5);
+      transition: opacity 2s ease-in-out;
+      opacity: 0;
+    }
+
+    .info.visible {
+      opacity: 1;
+    }
+
+    /* New CSS for the color-changing text */
+    #main-text {
+      transition: color 1.5s ease-in-out; /* Smooth color transition */
+    }
+
+    .sub-text {
+        font-size: 28px;
+        margin-top: 15px;
+        color: rgba(255, 223, 186, 0.9);
+        text-shadow: 0 0 8px rgba(255, 223, 186, 0.7);
+    }
+  </style>
 </head>
 <body>
-  <audio autoplay loop>
-    <source src="hacker.mp3" type="audio/mpeg">
-  </audio>
-
-  <div class="matrix"></div>
-
-  <div class="content">
-    <h1>Hey there, I’m Arish Ahmed Tushar</h1>
-    <p><strong>Title:</strong> Bangladesh Black Hacker (Fuck Your System)</p>
-    <p><strong>Location:</strong> Bangladesh</p>
-
-    <h2>Services I Provide:</h2>
-    <ul>
-      <li>Website Making & Developing</li>
-      <li>Multi-page Blogspot Hosting Template</li>
-      <li>Bug Bounty</li>
-      <li>Target Gmail Making</li>
-      <li>Top Level SEO & Ads</li>
-      <li>Digital Marketing</li>
-      <li>Facebook Account Take-Down</li>
-      <li>Monetization Suspended Recovery</li>
-      <li>Fake Copyright Recovery</li>
-      <li>Suspend ID Recovery</li>
-      <li>Boost Facebook Page</li>
-    </ul>
-
-    <h2>Skills In Programming Languages:</h2>
-    <p>JavaScript, TypeScript, React, PHP, Python, SQL, HTML, Ruby</p>
-
-    <h2>About Owner</h2>
-    <p>Arish Ahmed – Cyber Security Expert</p>
-<h2>Contact</h2>
-<p>Email: arishahmedtushar8@gmail.com</p>
-<p>LinkedIn: Not available</p>
-<p>GitHub: ★</p>
-<p>Facebook: Arish Restr'icted</p>
-
-<a href="https://wa.me/8801922450569" target="_blank">
-  <button style="padding: 10px 20px; background-color: #25D366; color: white; border: none; border-radius: 5px; cursor: pointer;">
-    📞 Contact on WhatsApp
-  </button>
-</a>
-    <hr/>
-
-    <h2>Dark Web Explained</h2>
-    <p>The <strong>Dark Web</strong> is a part of the internet that is not indexed by standard search engines and requires special software like TOR to access. It is known for anonymity and encrypted communications.</p>
-
-    <h3>Internet Layers:</h3>
-    <ul>
-      <li><strong>Surface Web:</strong> Websites we visit daily like Google, Facebook.</li>
-      <li><strong>Deep Web:</strong> Password protected content like emails, bank accounts.</li>
-      <li><strong>Dark Web:</strong> Encrypted, anonymous networks accessible via TOR browser.</li>
-    </ul>
-
-    <h3>What is found on the Dark Web?</h3>
-    <strong>Legal Uses:</strong>
-    <ul>
-      <li>Whistleblowing</li>
-      <li>Uncensored journalism</li>
-      <li>Secure communication</li>
-    </ul>
-    <strong>Illegal Uses:</strong>
-    <ul>
-      <li>Drug and weapon trade</li>
-      <li>Hacking tools</li>
-      <li>Fake IDs and documents</li>
-    </ul>
-
-    <h3>How TOR Works</h3>
-    <p><strong>TOR (The Onion Router)</strong> is a browser that anonymizes your internet traffic by routing it through multiple encrypted relays, making it difficult to trace the origin.</p>
-
-    <h3>Safety Tips</h3>
-    <ul>
-      <li>Use TOR Browser</li>
-      <li>Combine VPN with TOR for extra security</li>
-      <li>Disable JavaScript in the browser</li>
-      <li>Do not share personal information</li>
-      <li>Use trusted .onion links only</li>
-      <li>Use Virtual Machines for testing</li>
-    </ul>
-
-    <h3>Hacker Warnings</h3>
-    <ul>
-      <li>Beware of fake links and scams</li>
-      <li>Malware can be hidden in downloads</li>
-      <li>Law enforcement uses honeypots to catch criminals</li>
-      <li>Cryptocurrency transactions are risky</li>
-    </ul>
-
-    <h3>Why Learn About Dark Web?</h3>
-    <ul>
-      <li>Protect your data</li>
-      <li>Help others by ethical hacking</li>
-      <li>Gather hidden information</li>
-      <li>Build a career in cybersecurity and bug bounty</li>
-    </ul>
-
-    <footer>
-      <p>&copy; 2017 Arish Ahmed Tushar. All rights reserved.</p>
-    </footer>
+  <canvas id="canvas"></canvas>
+  <div id="text-container" class="info">
+    <!-- The main text is now in its own span with an ID -->
+    <span id="main-text">I ❤️ You</span>
+    <div class="sub-text">Tuaar</div>
   </div>
+
+  <script>
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+    const textContainer = document.getElementById("text-container");
+    const mainText = document.getElementById("main-text"); // Get the main text element
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let particlesArray = [];
+    const numberOfParticles = 1000;
+    const animationDuration = 3000;
+    let animationStartTime;
+
+    // Particle Class
+    class Particle {
+      constructor(targetX, targetY) {
+        this.startX = Math.random() * canvas.width;
+        this.startY = Math.random() * canvas.height;
+        this.x = this.startX;
+        this.y = this.startY;
+        this.targetX = targetX;
+        this.targetY = targetY;
+        this.size = Math.random() * 2 + 1;
+        this.color = `rgba(255, 20, 147, ${Math.random() * 0.5 + 0.5})`;
+      }
+
+      draw() {
+        ctx.fillStyle = this.color;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.closePath();
+        ctx.fill();
+      }
+
+      update(progress) {
+        const easeProgress = 1 - Math.pow(1 - progress, 4);
+        this.x = this.startX + (this.targetX - this.startX) * easeProgress;
+        this.y = this.startY + (this.targetY - this.startY) * easeProgress;
+      }
+    }
+
+    // Heart Shape Formula
+    function heartShape(t) {
+      const scale = 20;
+      const x = 16 * Math.pow(Math.sin(t), 3);
+      const y = -(13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t));
+      return { x: x * scale, y: y * scale };
+    }
+
+    function init() {
+      particlesArray = [];
+      for (let i = 0; i < numberOfParticles; i++) {
+        let t = (i / numberOfParticles) * Math.PI * 2;
+        let heart = heartShape(t);
+        const radius = Math.random() * 50;
+        const angle = Math.random() * Math.PI * 2;
+        let targetX = heart.x + canvas.width / 2 + radius * Math.cos(angle);
+        let targetY = heart.y + canvas.height / 2 + radius * Math.sin(angle);
+        particlesArray.push(new Particle(targetX, targetY));
+      }
+    }
+
+    // --- Logic for changing text color ---
+    const colors = ['#39FF14', '#FF1493', '#FF0000']; // Green, Pink, Red
+    let colorIndex = 0;
+
+    function changeTextColor() {
+      if (mainText) {
+        mainText.style.color = colors[colorIndex];
+        colorIndex = (colorIndex + 1) % colors.length;
+      }
+    }
+    // --- End of color change logic ---
+
+    function animate(timestamp) {
+      if (!animationStartTime) {
+        animationStartTime = timestamp;
+      }
+      
+      const elapsedTime = timestamp - animationStartTime;
+      let progress = Math.min(elapsedTime / animationDuration, 1);
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      particlesArray.forEach(p => {
+        p.update(progress);
+        p.draw();
+      });
+
+      if (progress >= 1 && !textContainer.classList.contains('visible')) {
+        textContainer.classList.add("visible");
+        // Start changing colors only after the text becomes visible
+        changeTextColor(); // Set initial color
+        setInterval(changeTextColor, 2000); // Change color every 2 seconds
+      }
+
+      requestAnimationFrame(animate);
+    }
+
+    init();
+    animate();
+
+    window.addEventListener("resize", function () {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      textContainer.classList.remove("visible");
+      animationStartTime = null;
+      init();
+      // Note: The color change interval will continue, which is fine.
+    });
+  </script>
 </body>
-</html>
+  </html>
